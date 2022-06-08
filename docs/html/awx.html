@@ -285,6 +285,13 @@ quJ2t6KD2m2qD1BvdaNfMitvyp06iF8B
 <h2><span class="section-number">3.3. </span>Access AWX<a class="headerlink" href="#access-awx" title="Permalink to this headline"></a></h2>
 <section id="list-of-routes">
 <h3><span class="section-number">3.3.1. </span>List of routes<a class="headerlink" href="#list-of-routes" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get routes
+
+NAME   HOST/PORT                                                                                                    PATH   SERVICES           PORT   TERMINATION   WILDCARD
+awx1   awx1-awx.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud          awx-demo-service   http                 None
+awx3   awx3-awx.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud          awx-demo-service   http   edge          None
+</pre></div>
+</div>
 <img alt="_images/awx-routes.png" src="_images/awx-routes.png" />
 </section>
 <section id="awx-web-ui">

@@ -222,6 +222,15 @@ Access AWX
 List of routes
 ==============
 
+.. code-block:: bash
+
+    oc get routes
+
+    NAME   HOST/PORT                                                                                                    PATH   SERVICES           PORT   TERMINATION   WILDCARD
+    awx1   awx1-awx.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud          awx-demo-service   http                 None
+    awx3   awx3-awx.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud          awx-demo-service   http   edge          None
+   
+
 .. image:: ./images/awx-routes.png
    
 
