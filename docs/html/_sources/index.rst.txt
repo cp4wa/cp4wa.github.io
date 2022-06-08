@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Cloud Pak for Watson AIOps Tutorials's 
-##################################################
+Welcome to Cloud Pak for Watson AIOps Tutorials
+###############################################
+
 
 Introduction
 ************
@@ -27,7 +28,7 @@ The generated index.html is in folder **docs/html** but github pages expect an *
 
 GitHub Pages uses Jekyll by default, to ensure the theme of Sphinx is rendered properly you need to add a ```.nojekyll``` in docs folder.
 
-this project can be found at `github <https://github.com/cp4wa/cp4wa.github.io>`_.
+this project source can be found at `github <https://github.com/cp4wa/cp4wa.github.io>`_ and the generated `site <https://cp4wa.github.io>`_.
 
 Resources
 *********
