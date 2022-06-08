@@ -132,7 +132,7 @@ To retrieve the admin password, run
 
     kubectl get secret awx-demo-admin-password -o jsonpath="{.data.password}" | base64 --decode
 
-    quJ2t6KD2m2qD1BvdaNfMitvyp06iF8B
+    
 
 
 creae HTTP non secure route
