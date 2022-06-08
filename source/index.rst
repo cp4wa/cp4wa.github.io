@@ -32,20 +32,25 @@ this project source can be found at `github <https://github.com/cp4wa/cp4wa.gith
 
 Resources
 *********
-
+ 
 - Sphinx
 
   - `Sphinux Documentation <https://www.sphinx-doc.org/en/master/contents.html>`_
+  - `Sphinx lesson <https://coderefinery.github.io/sphinx-lesson/>`_
   - How to host `Sphinix <https://python.plainenglish.io/how-to-host-your-sphinx-documentation-on-github-550254f325ae>`_ documentation on GitHub Pages
 - reStructuredTes
 
+  - `Introduction to reStructuredText <https://www.writethedocs.org/guide/writing/reStructuredText/>`_
   - `reStructuredText Primer (Basic) <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_
   - `A ReStructuredText Primer <https://docutils.sourceforge.io/docs/user/rst/quickstart.html>`_
+  - `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
   - `Cheatsheet <https://raw.githubusercontent.com/ralsina/rst-cheatsheet/master/rst-cheatsheet.pdf>`_
 - GitHub
 
   - `GitHub Pages <https://pages.github.com/>`_
   - `GitHub Actions <https://docs.github.com/en/actions>`_
+  - `SSH for GitHub <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh>`_
+  - `Git <https://git-scm.com/about>`_
   
 .. toctree::
    :maxdepth: 4

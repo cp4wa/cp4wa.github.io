@@ -8,3 +8,4 @@ References
 #. `Splunk Enterprise documentation <https://docs.splunk.com/Documentation/Splunk>`_
 #. `Sphnix <https://www.sphinx-doc.org/en/master/index.html>`_
 #. `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
+#. `Sphinx lesson <https://coderefinery.github.io/sphinx-lesson/>`_
