@@ -70,6 +70,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#create-route-for-splunk-web">2.4.4.1. Create route for Splunk web</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#create-route-for-splunk-rest-api">2.4.4.2. Create route for Splunk REST API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#splunk-public">2.4.4.3. Splunk public</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-the-url-certificate">2.4.4.4. Getting the url certificate</a></li>
 </ul>
 </li>
 </ul>
@@ -233,6 +234,21 @@
 <h4><span class="section-number">2.4.4.3. </span>Splunk public<a class="headerlink" href="#splunk-public" title="Permalink to this headline"></a></h4>
 <p>You should have two routes where Splunk is accessible publicly, clink on the <strong>Location</strong> link.</p>
 <img alt="_images/splunk-routes.png" src="_images/splunk-routes.png" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get routes
+
+NAME        HOST/PORT                                                                                                                     PATH   SERVICES                             PORT        TERMINATION            WILDCARD
+splunkapi   splunkapi-splunk-operator.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud          splunk-example-standalone-headless   splunkd     passthrough/Redirect   None
+splunkweb   splunkweb-splunk-operator.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud          splunk-example-standalone-headless   splunkweb   passthrough/Redirect   None
+</pre></div>
+</div>
+</section>
+<section id="getting-the-url-certificate">
+<h4><span class="section-number">2.4.4.4. </span>Getting the url certificate<a class="headerlink" href="#getting-the-url-certificate" title="Permalink to this headline"></a></h4>
+<p>&lt;server&gt;: obtained from the public route</p>
+<p>Example of &lt;server&gt;: <code class="docutils literal notranslate"><span class="pre">splunkapi-splunk-operator.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl s_client -showcerts -servername &lt;server&gt; -connect &lt;server&gt;:443 &lt;/dev/null
+</pre></div>
+</div>
 </section>
 </section>
 </section>

@@ -172,6 +172,27 @@ You should have two routes where Splunk is accessible publicly, clink on the **L
 
 .. image:: ./images/splunk-routes.png
 
+.. code-block:: bash
+
+  oc get routes
+
+  NAME        HOST/PORT                                                                                                                     PATH   SERVICES                             PORT        TERMINATION            WILDCARD
+  splunkapi   splunkapi-splunk-operator.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud          splunk-example-standalone-headless   splunkd     passthrough/Redirect   None
+  splunkweb   splunkweb-splunk-operator.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud          splunk-example-standalone-headless   splunkweb   passthrough/Redirect   None
+
+   
+
+Getting the url certificate
+---------------------------
+
+<server>: obtained from the public route
+
+Example of <server>: ``splunkapi-splunk-operator.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud``
+
+.. code-block:: bash
+  
+  openssl s_client -showcerts -servername <server> -connect <server>:443 </dev/null
+
 Resources
 *********
 

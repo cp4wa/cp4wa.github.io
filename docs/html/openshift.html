@@ -18,7 +18,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Cloud Pak for Watson AIOps" href="cp4wa.html" />
+    <link rel="next" title="2. Splunk" href="splunk.html" />
     <link rel="prev" title="Welcome to Cloud Pak for Watson AIOps Tutorials" href="index.html" /> 
 </head>
 
@@ -47,13 +47,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#list-current-project">1.3.2. List current project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list-routes-in-current-project">1.3.3. List routes in current project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list-storage-class">1.3.4. List storage class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-pvc">1.3.5. List PVC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-replicasets">1.3.6. List ReplicaSets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-services">1.3.7. List services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-configmaps">1.3.8. List configmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-deployment">1.3.9. List Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-secrets">1.3.10. List secrets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-pods">1.3.11. List pods</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#resources">1.4. Resources</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cp4wa.html">2. Cloud Pak for Watson AIOps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="splunk.html">3. Splunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splunk.html">2. Splunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp4wa.html">3. Cloud Pak for Watson AIOps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ieam.html">4. IBM Edge Application Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">5. References</a></li>
 </ul>
@@ -138,6 +145,115 @@
 <section id="list-storage-class">
 <h3><span class="section-number">1.3.4. </span>List storage class<a class="headerlink" href="#list-storage-class" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get sc
+
+NAME                                          PROVISIONER                             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+ibmc-vpc-block-10iops-tier <span class="o">(</span>default<span class="o">)</span>          vpc.block.csi.ibm.io                    Delete          Immediate              <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-5iops-tier                     vpc.block.csi.ibm.io                    Delete          Immediate              <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-custom                         vpc.block.csi.ibm.io                    Delete          Immediate              <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-general-purpose                vpc.block.csi.ibm.io                    Delete          Immediate              <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-metro-10iops-tier              vpc.block.csi.ibm.io                    Delete          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-metro-5iops-tier               vpc.block.csi.ibm.io                    Delete          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-metro-custom                   vpc.block.csi.ibm.io                    Delete          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-metro-general-purpose          vpc.block.csi.ibm.io                    Delete          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-metro-retain-10iops-tier       vpc.block.csi.ibm.io                    Retain          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-metro-retain-5iops-tier        vpc.block.csi.ibm.io                    Retain          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-metro-retain-custom            vpc.block.csi.ibm.io                    Retain          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-metro-retain-general-purpose   vpc.block.csi.ibm.io                    Retain          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-retain-10iops-tier             vpc.block.csi.ibm.io                    Retain          Immediate              <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-retain-5iops-tier              vpc.block.csi.ibm.io                    Retain          Immediate              <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-retain-custom                  vpc.block.csi.ibm.io                    Retain          Immediate              <span class="nb">true</span>                   2d5h
+ibmc-vpc-block-retain-general-purpose         vpc.block.csi.ibm.io                    Retain          Immediate              <span class="nb">true</span>                   2d5h
+ibmc-vpcblock-odf-10iops                      vpc.block.csi.ibm.io                    Delete          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpcblock-odf-5iops                       vpc.block.csi.ibm.io                    Delete          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpcblock-odf-custom                      vpc.block.csi.ibm.io                    Delete          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpcblock-odf-general                     vpc.block.csi.ibm.io                    Delete          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpcblock-odf-ret-10iops                  vpc.block.csi.ibm.io                    Retain          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpcblock-odf-ret-5iops                   vpc.block.csi.ibm.io                    Retain          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpcblock-odf-ret-custom                  vpc.block.csi.ibm.io                    Retain          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ibmc-vpcblock-odf-ret-general                 vpc.block.csi.ibm.io                    Retain          WaitForFirstConsumer   <span class="nb">true</span>                   2d5h
+ocs-storagecluster-ceph-rbd                   openshift-storage.rbd.csi.ceph.com      Delete          Immediate              <span class="nb">true</span>                   2d5h
+ocs-storagecluster-ceph-rgw                   openshift-storage.ceph.rook.io/bucket   Delete          Immediate              <span class="nb">false</span>                  2d5h
+ocs-storagecluster-cephfs                     openshift-storage.cephfs.csi.ceph.com   Delete          Immediate              <span class="nb">true</span>                   2d5h
+openshift-storage.noobaa.io                   openshift-storage.noobaa.io/obc         Delete          Immediate              <span class="nb">false</span>                  2d5h
+</pre></div>
+</div>
+</section>
+<section id="list-pvc">
+<h3><span class="section-number">1.3.5. </span>List PVC<a class="headerlink" href="#list-pvc" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get pvc
+
+NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS                 AGE
+pvc-etc-splunk-example-standalone-0   Bound    pvc-7342f36a-d12b-494d-9e5c-cd53b2ab4cb1   10Gi       RWO            ibmc-vpc-block-10iops-tier   69m
+pvc-var-splunk-example-standalone-0   Bound    pvc-b9da3d79-bee9-48cf-928b-87d5105373db   100Gi      RWO            ibmc-vpc-block-10iops-tier   69m
+</pre></div>
+</div>
+</section>
+<section id="list-replicasets">
+<h3><span class="section-number">1.3.6. </span>List ReplicaSets<a class="headerlink" href="#list-replicasets" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get ReplicaSets
+
+ NAME                         DESIRED   CURRENT   READY   AGE
+ splunk-operator-7464457cd6   <span class="m">1</span>         <span class="m">1</span>         <span class="m">1</span>       70m
+</pre></div>
+</div>
+</section>
+<section id="list-services">
+<h3><span class="section-number">1.3.7. </span>List services<a class="headerlink" href="#list-services" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get services
+
+NAME                                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>                                                            AGE
+splunk-example-standalone-headless   ClusterIP   None         &lt;none&gt;        <span class="m">8000</span>/TCP,8088/TCP,8089/TCP,9000/TCP,9997/TCP,17000/TCP,19000/TCP   68m
+</pre></div>
+</div>
+</section>
+<section id="list-configmaps">
+<h3><span class="section-number">1.3.8. </span>List configmaps<a class="headerlink" href="#list-configmaps" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get configmaps
+
+ NAME                       DATA   AGE
+ kube-root-ca.crt           <span class="m">1</span>      70m
+ openshift-service-ca.crt   <span class="m">1</span>      70m
+ splunk-operator-lock       <span class="m">0</span>      69m
+</pre></div>
+</div>
+</section>
+<section id="list-deployment">
+<h3><span class="section-number">1.3.9. </span>List Deployment<a class="headerlink" href="#list-deployment" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get deployments
+
+NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+splunk-operator   <span class="m">1</span>/1     <span class="m">1</span>            <span class="m">1</span>           68m
+</pre></div>
+</div>
+</section>
+<section id="list-secrets">
+<h3><span class="section-number">1.3.10. </span>List secrets<a class="headerlink" href="#list-secrets" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get secrets
+
+NAME                                TYPE                                  DATA   AGE
+builder-dockercfg-8sxcw             kubernetes.io/dockercfg               <span class="m">1</span>      66m
+builder-token-7w72r                 kubernetes.io/service-account-token   <span class="m">4</span>      66m
+builder-token-ngh6d                 kubernetes.io/service-account-token   <span class="m">4</span>      66m
+default-dockercfg-v5b5s             kubernetes.io/dockercfg               <span class="m">1</span>      66m
+default-token-dbxvc                 kubernetes.io/service-account-token   <span class="m">4</span>      66m
+default-token-rrkwd                 kubernetes.io/service-account-token   <span class="m">4</span>      66m
+deployer-dockercfg-cr4x4            kubernetes.io/dockercfg               <span class="m">1</span>      66m
+deployer-token-bvm9p                kubernetes.io/service-account-token   <span class="m">4</span>      66m
+deployer-token-kp9jj                kubernetes.io/service-account-token   <span class="m">4</span>      66m
+splunk-example-standalone-secrets   Opaque                                <span class="m">6</span>      63m
+splunk-operator-dockercfg-hkwdz     kubernetes.io/dockercfg               <span class="m">1</span>      66m
+splunk-operator-token-bhtlb         kubernetes.io/service-account-token   <span class="m">4</span>      66m
+splunk-operator-token-j5xgp         kubernetes.io/service-account-token   <span class="m">4</span>      66m
+</pre></div>
+</div>
+</section>
+<section id="list-pods">
+<h3><span class="section-number">1.3.11. </span>List pods<a class="headerlink" href="#list-pods" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get pods
+
+NAME                               READY   STATUS    RESTARTS   AGE
+splunk-example-standalone-0        <span class="m">1</span>/1     Running   <span class="m">0</span>          61m
+splunk-operator-7464457cd6-9sqw9   <span class="m">1</span>/1     Running   <span class="m">0</span>          64m
 </pre></div>
 </div>
 </section>
@@ -155,7 +271,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Cloud Pak for Watson AIOps Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cp4wa.html" class="btn btn-neutral float-right" title="2. Cloud Pak for Watson AIOps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="splunk.html" class="btn btn-neutral float-right" title="2. Splunk" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -33,8 +33,6 @@ Add Connection: Splunk
 .. image:: ./images/splunk-connection.png
 .. image:: ./images/splunk-connection-test.png
 .. image:: ./images/splunk-connection-train.png
-       
-      
 
 Integrating to Kubernetes (CP4WA)
 *********************************
