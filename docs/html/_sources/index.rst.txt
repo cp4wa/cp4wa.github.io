@@ -58,8 +58,8 @@ Resources
    :numbered:
 
    openshift
-   cp4wa
    splunk
+   cp4wa
    ieam
    references
 

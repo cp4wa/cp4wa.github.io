@@ -41,6 +41,15 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Red Hat OpenShift</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#reserve-an-instance">1.1. Reserve an instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-requisite">1.2. Pre-requisite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-openshift-login-token-for-use-with-oc">1.3. Get OpenShift login token for use with oc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-projects-in-ocp">1.3.1. List projects in ocp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-current-project">1.3.2. List current project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-routes-in-current-project">1.3.3. List routes in current project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-storage-class">1.3.4. List storage class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">1.4. Resources</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cp4wa.html">2. Cloud Pak for Watson AIOps</a></li>
@@ -86,6 +95,58 @@
 <li><p>Managed OpenShift cluster (ROKS) in IBM Cloud (VPC/”Gen2”) with OCS support.</p></li>
 </ul>
 </div></blockquote>
+<p>To access the link above you need to have IBMid, to create an <a class="reference external" href="https://www.ibm.com/account/reg/signup?formid=urx-19776&amp;target=https%3A%2F%2Flogin.ibm.com%2Foidc%2Fendpoint%2Fdefault%2Fauthorize%3FqsId%3D8bdd0123-f231-42b5-9f2a-2cad9ebed217%26client_id%3DODllMDk4YzItMjgxOC00">IBMid</a>.</p>
+<p>To reserve OpenShift Instance on IBM Cloud click on <strong>Reserve</strong> for ROKS on classics infrastructure or VPC.</p>
+<img alt="_images/ocp-reserve.png" src="_images/ocp-reserve.png" />
+<p>You can view your <a class="reference external" href="https://techzone.ibm.com/my/reservations">reservation</a> as shown below.</p>
+<img alt="_images/ocp-reservation.png" src="_images/ocp-reservation.png" />
+<p>When you reservation is ready, an email will be sent to you with your OCP information on how you can access the cluster and also to add yourself as user to access the cluster in IBM Cloud.</p>
+<p>You can delate your reservation as shown.</p>
+<img alt="_images/ocp-delete.png" src="_images/ocp-delete.png" />
+</section>
+<section id="pre-requisite">
+<h2><span class="section-number">1.2. </span>Pre-requisite<a class="headerlink" href="#pre-requisite" title="Permalink to this headline"></a></h2>
+<p>You need to install and ensure you have the following</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started">IBM Cloud CLI getting started</a></p></li>
+<li><p><a class="reference external" href="https://docs.openshift.com/container-platform/4.8/cli_reference/openshift_cli/getting-started-cli.html">OpenShift CLI getting started</a></p></li>
+</ul>
+</section>
+<section id="get-openshift-login-token-for-use-with-oc">
+<h2><span class="section-number">1.3. </span>Get OpenShift login token for use with oc<a class="headerlink" href="#get-openshift-login-token-for-use-with-oc" title="Permalink to this headline"></a></h2>
+<img alt="_images/ocp-logincmd.png" src="_images/ocp-logincmd.png" />
+<img alt="_images/ocp-token.png" src="_images/ocp-token.png" />
+<p>Once you run the above <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">login</span></code> you will be able to use oc to managed the ocp cluster.</p>
+<section id="list-projects-in-ocp">
+<h3><span class="section-number">1.3.1. </span>List projects in ocp<a class="headerlink" href="#list-projects-in-ocp" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc projects
+</pre></div>
+</div>
+</section>
+<section id="list-current-project">
+<h3><span class="section-number">1.3.2. </span>List current project<a class="headerlink" href="#list-current-project" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc project
+</pre></div>
+</div>
+</section>
+<section id="list-routes-in-current-project">
+<h3><span class="section-number">1.3.3. </span>List routes in current project<a class="headerlink" href="#list-routes-in-current-project" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get routes
+</pre></div>
+</div>
+</section>
+<section id="list-storage-class">
+<h3><span class="section-number">1.3.4. </span>List storage class<a class="headerlink" href="#list-storage-class" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get sc
+</pre></div>
+</div>
+</section>
+</section>
+<section id="resources">
+<h2><span class="section-number">1.4. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>get started with <a class="reference external" href="https://cloud.ibm.com/docs/openshift?topic=openshift-getting-started">OpenShift on IBM Cloud</a></p></li>
+</ul>
 </section>
 </section>
 
