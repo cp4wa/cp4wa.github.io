@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Splunk &mdash; cp4wa tutorials 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. IBM Edge Application Management" href="ieam.html" />
+    <link rel="prev" title="2. Cloud Pak for Watson AIOps" href="cp4wa.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> cp4wa tutorials
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="openshift.html">1. Red Hat OpenShift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp4wa.html">2. Cloud Pak for Watson AIOps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Splunk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-splunk-operator">3.1. Deploy Splunk Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login-to-openshift">3.1.1. login to OpenShift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-project">3.1.2. create project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-operator">3.1.3. install the operator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-splunk-enterprise-standalone">3.2. Deploy Splunk Enterprise Standalone</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deploy-splunk-standalone">3.2.1. Deploy Splunk standalone</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#test-drive-splunk">3.3. Test drive splunk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-splunk">3.3.1. Configure Splunk</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#splunk-preferences-optional">3.3.1.1. Splunk preferences (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#server-settings">3.3.1.2. Server settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#users-optional">3.3.1.3. Users (Optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#add-data">3.3.2. Add data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-data">3.3.3. Search data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ieam.html">4. IBM Edge Application Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">5. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cp4wa tutorials</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>Splunk</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/splunk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="splunk">
+<h1><span class="section-number">3. </span>Splunk<a class="headerlink" href="#splunk" title="Permalink to this headline"></a></h1>
+<p>The following provides guidance in setting splunk on OpenShift using the community splunk-operator.</p>
+<p>Prerequisite</p>
+<ul class="simple">
+<li><p>install ibmcloud cli</p></li>
+<li><p>openshift cli</p></li>
+<li><p>kubectl cli</p></li>
+</ul>
+<section id="deploy-splunk-operator">
+<h2><span class="section-number">3.1. </span>Deploy Splunk Operator<a class="headerlink" href="#deploy-splunk-operator" title="Permalink to this headline"></a></h2>
+<section id="login-to-openshift">
+<h3><span class="section-number">3.1.1. </span>login to OpenShift<a class="headerlink" href="#login-to-openshift" title="Permalink to this headline"></a></h3>
+<p>get OpenShift login credential</p>
+<p>from a terminal, login to openshift</p>
+</section>
+<section id="create-project">
+<h3><span class="section-number">3.1.2. </span>create project<a class="headerlink" href="#create-project" title="Permalink to this headline"></a></h3>
+<p>You can create the project in advance and choose the created project when you install the splunk-operator. Alternatively, you can also create project aka namesapce during installatin of splunk-operator.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc new-project splunk-operator
+</pre></div>
+</div>
+<p>create splunk-operator namespace aka project</p>
+</section>
+<section id="install-the-operator">
+<h3><span class="section-number">3.1.3. </span>install the operator<a class="headerlink" href="#install-the-operator" title="Permalink to this headline"></a></h3>
+<p>install the operator using openshift UI</p>
+<img alt="_images/deploy-splunk-operator.png" src="_images/deploy-splunk-operator.png" />
+<img alt="_images/install-splunk-operator.png" src="_images/install-splunk-operator.png" />
+<img alt="_images/fill-operator-form.png" src="_images/fill-operator-form.png" />
+<img alt="_images/create-namespace.png" src="_images/create-namespace.png" />
+<img alt="_images/operator-namespace.png" src="_images/operator-namespace.png" />
+<img alt="_images/operator-install-progress.png" src="_images/operator-install-progress.png" />
+<img alt="_images/installed-operator.png" src="_images/installed-operator.png" />
+<img alt="_images/operator-pod-ready.png" src="_images/operator-pod-ready.png" />
+</section>
+</section>
+<section id="deploy-splunk-enterprise-standalone">
+<h2><span class="section-number">3.2. </span>Deploy Splunk Enterprise Standalone<a class="headerlink" href="#deploy-splunk-enterprise-standalone" title="Permalink to this headline"></a></h2>
+<p>install the standalone splunk server</p>
+<section id="deploy-splunk-standalone">
+<h3><span class="section-number">3.2.1. </span>Deploy Splunk standalone<a class="headerlink" href="#deploy-splunk-standalone" title="Permalink to this headline"></a></h3>
+<img alt="_images/operator-view.png" src="_images/operator-view.png" />
+<img alt="_images/standalone-create.png" src="_images/standalone-create.png" />
+<img alt="_images/standalone-label.png" src="_images/standalone-label.png" />
+<img alt="_images/standalone-form-create.png" src="_images/standalone-form-create.png" />
+<img alt="_images/standalone-progress.png" src="_images/standalone-progress.png" />
+<img alt="_images/standalone-pod.png" src="_images/standalone-pod.png" />
+<img alt="_images/standalone-podready.png" src="_images/standalone-podready.png" />
+<ul class="simple">
+<li><p>get password for splunk web</p></li>
+<li><p>quick local test splunk web</p></li>
+<li><p>configure splunk</p>
+<ul>
+<li><p>enable SSH</p></li>
+<li><p>add user</p></li>
+<li><p>set preference</p></li>
+<li><p>restart server</p></li>
+</ul>
+</li>
+<li><p>create route for splunk web</p></li>
+<li><p>create route for splunk api</p></li>
+</ul>
+</section>
+</section>
+<section id="test-drive-splunk">
+<h2><span class="section-number">3.3. </span>Test drive splunk<a class="headerlink" href="#test-drive-splunk" title="Permalink to this headline"></a></h2>
+<section id="configure-splunk">
+<h3><span class="section-number">3.3.1. </span>Configure Splunk<a class="headerlink" href="#configure-splunk" title="Permalink to this headline"></a></h3>
+<section id="splunk-preferences-optional">
+<h4><span class="section-number">3.3.1.1. </span>Splunk preferences (Optional)<a class="headerlink" href="#splunk-preferences-optional" title="Permalink to this headline"></a></h4>
+<p>SPL Editor</p>
+</section>
+<section id="server-settings">
+<h4><span class="section-number">3.3.1.2. </span>Server settings<a class="headerlink" href="#server-settings" title="Permalink to this headline"></a></h4>
+<p>General settings</p>
+</section>
+<section id="users-optional">
+<h4><span class="section-number">3.3.1.3. </span>Users (Optional)<a class="headerlink" href="#users-optional" title="Permalink to this headline"></a></h4>
+<p>Add user</p>
+</section>
+</section>
+<section id="add-data">
+<h3><span class="section-number">3.3.2. </span>Add data<a class="headerlink" href="#add-data" title="Permalink to this headline"></a></h3>
+</section>
+<section id="search-data">
+<h3><span class="section-number">3.3.3. </span>Search data<a class="headerlink" href="#search-data" title="Permalink to this headline"></a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cp4wa.html" class="btn btn-neutral float-left" title="2. Cloud Pak for Watson AIOps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ieam.html" class="btn btn-neutral float-right" title="4. IBM Edge Application Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jaric Sng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
