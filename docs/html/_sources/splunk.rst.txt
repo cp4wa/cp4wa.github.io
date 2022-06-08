@@ -3,7 +3,8 @@ Splunk
 
 The following provides guidance in setting splunk on OpenShift using the community splunk-operator.
 
-Prerequisite 
+Prerequisite
+************
 
 - OpenShift cluster
 
