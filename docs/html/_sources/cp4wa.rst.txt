@@ -60,7 +60,7 @@ testing adding kubernetes connection, the following shows adding connection for 
 Integrating to ServiceNow
 *************************
 
-To test this integration, you can provisioned a developer instance at ServiceNow.
+To test this integration, you can provisioned a developer instance at ServiceNow. **Do take note** it will be shutdown or archive if it is not used for a period of time.
 
 .. image:: ./images/cp4wa-snow.png
 .. image:: ./images/cp4wa-snowconn.png
