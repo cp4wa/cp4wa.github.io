@@ -20,9 +20,10 @@ Do ensure you request the following
 
 **Notes:**
 
-When you provisioned a OCP with ODF, the precheck used will failed for OCP registry check.
+When you provisioned a OCP with ODF, the `precheck for CP4WA 3.3 <https://github.com/IBM/cp4waiops-samples/tree/main/prereq-checker/3.3>`_ failed for OCP registry check.
 To resolve this, you need to create a PVC and attach registry, see the `documentation <https://access.redhat.com/documentation/en-us/red_hat_openshift_data_foundation/4.9/html/deploying_and_managing_openshift_data_foundation_using_red_hat_openstack_platform/configure_storage_for_openshift_container_platform_services>`_ on how you can do this.
 
+.. image:: ./images/precheck-failedreg.png
 .. image:: ./images/precheck-pass.png
 
 Sample Connection in CP4WA
