@@ -37,6 +37,13 @@ Add Connection: Splunk
 Integrating to Kubernetes (CP4WA)
 *********************************
 
+testing adding kubernetes connection, the following shows adding connection for a local OCP where CP4WA is hosted.
+
+.. image:: ./images/cp4wa-k8sadd.png
+.. image:: ./images/cp4wa-k8slocal.png
+.. image:: ./images/cp4wa-k8sschedule.png
+   
+
 Integrating to ServiceNow
 *************************
 
