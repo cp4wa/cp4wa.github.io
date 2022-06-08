@@ -201,6 +201,8 @@ awx-demo-postgres-0   <span class="m">1</span>/1     Running   <span class="m">0
 <section id="to-retrieve-the-admin-password-run">
 <h3><span class="section-number">3.2.1. </span>To retrieve the admin password, run<a class="headerlink" href="#to-retrieve-the-admin-password-run" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl get secret awx-demo-admin-password -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.password}&quot;</span> <span class="p">|</span> base64 --decode
+
+quJ2t6KD2m2qD1BvdaNfMitvyp06iF8B
 </pre></div>
 </div>
 </section>

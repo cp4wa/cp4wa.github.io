@@ -66,9 +66,15 @@ To test this integration, you can provisioned a developer instance at ServiceNow
 .. image:: ./images/cp4wa-snowconn.png
 .. image:: ./images/cp4wa-snowtop.png
 .. image:: ./images/cp4wa-snowtick.png
-   
+
+
+Integrating to Ansible Tower   
+*******************************
+
+
 
 Resources
 *********
 
 - `CP4WAIOps samples <https://github.com/IBM/cp4waiops-samples>`_
+- `integrating to ansible documentation <https://www.ibm.com/docs/en/cloud-paks/cloud-pak-watson-aiops/3.3.2?topic=connections-ansible>`_
