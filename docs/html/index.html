@@ -79,6 +79,10 @@
 <p>To generate the static web pages, the following command will generate the html pags in folder <strong>docs</strong>, this target directory is configured in <strong>source/Makefile</strong>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nb">source</span>
 make html
+<span class="nb">cd</span> ..
+git add .
+git commit -m <span class="s2">&quot;updated contents ...&quot;</span>
+git push
 </pre></div>
 </div>
 <p>The generated index.html is in folder <strong>docs/html</strong> but github pages expect an <em>index.html</em> in <strong>docs</strong> root folder, an <em>index.html</em> is created to redirect it to <strong>./html/index.html</strong></p>

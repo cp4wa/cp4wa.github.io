@@ -22,6 +22,10 @@ To generate the static web pages, the following command will generate the html p
 
    cd source 
    make html
+   cd ..
+   git add .
+   git commit -m "updated contents ..."
+   git push
 
 
 The generated index.html is in folder **docs/html** but github pages expect an *index.html* in **docs** root folder, an *index.html* is created to redirect it to **./html/index.html**
