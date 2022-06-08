@@ -6,6 +6,3 @@ References
 #. `Splunk Enterprise Integration with Cloud Pak for Watson AIOps <https://community.ibm.com/community/user/aiops/blogs/sreedhar-kodali/2022/01/11/splunk-enterprise-integration-with-cp4waiops>`_
 #. `OpenShift documentation <https://docs.openshift.com/container-platform/4.8/welcome/index.html>`_
 #. `Splunk Enterprise documentation <https://docs.splunk.com/Documentation/Splunk>`_
-#. `Sphnix <https://www.sphinx-doc.org/en/master/index.html>`_
-#. `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-#. `Sphinx lesson <https://coderefinery.github.io/sphinx-lesson/>`_

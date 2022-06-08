@@ -63,6 +63,7 @@ Resources
 
    openshift
    splunk
+   awx
    cp4wa
    ieam
    references

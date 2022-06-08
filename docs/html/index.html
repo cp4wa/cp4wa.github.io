@@ -40,9 +40,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="openshift.html">1. Red Hat OpenShift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="splunk.html">2. Splunk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cp4wa.html">3. Cloud Pak for Watson AIOps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ieam.html">4. IBM Edge Application Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">5. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awx.html">3. AWX (Community Ansible Tower)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cp4wa.html">4. Cloud Pak for Watson AIOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ieam.html">5. IBM Edge Application Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">6. References</a></li>
 </ul>
 
         </div>
@@ -178,21 +179,42 @@ git push
 <li class="toctree-l2"><a class="reference internal" href="splunk.html#resources">2.5. Resources</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cp4wa.html">3. Cloud Pak for Watson AIOps</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#prerequisite">3.1. prerequisite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#install-cp4wa">3.2. Install CP4WA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#sample-connection-in-cp4wa">3.3. Sample Connection in CP4WA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#integrating-to-splunk">3.4. Integrating to Splunk</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cp4wa.html#add-connection-splunk">3.4.1. Add Connection: Splunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awx.html">3. AWX (Community Ansible Tower)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awx.html#install-operator">3.1. Install Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awx.html#create-awx-project">3.1.1. create awx project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awx.html#switch-project-to-awx">3.1.2. switch project to awx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awx.html#validate-pod-are-running">3.1.3. validate pod are running</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#integrating-to-kubernetes-cp4wa">3.5. Integrating to Kubernetes (CP4WA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#integrating-to-servicenow">3.6. Integrating to ServiceNow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#resources">3.7. Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx.html#deploy-awx">3.2. Deploy AWX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awx.html#to-retrieve-the-admin-password-run">3.2.1. To retrieve the admin password, run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awx.html#creae-http-non-secure-route">3.2.2. creae HTTP non secure route</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awx.html#create-secure-route-with-edge">3.2.3. create secure route with edge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ieam.html">4. IBM Edge Application Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">5. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx.html#access-awx">3.3. Access AWX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awx.html#list-of-routes">3.3.1. List of routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awx.html#awx-web-ui">3.3.2. AWX web ui</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awx.html#resources">3.4. Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cp4wa.html">4. Cloud Pak for Watson AIOps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#prerequisite">4.1. prerequisite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#install-cp4wa">4.2. Install CP4WA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#sample-connection-in-cp4wa">4.3. Sample Connection in CP4WA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#integrating-to-splunk">4.4. Integrating to Splunk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cp4wa.html#add-connection-splunk">4.4.1. Add Connection: Splunk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#integrating-to-kubernetes-cp4wa">4.5. Integrating to Kubernetes (CP4WA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#integrating-to-servicenow">4.6. Integrating to ServiceNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cp4wa.html#resources">4.7. Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ieam.html">5. IBM Edge Application Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">6. References</a></li>
 </ul>
 </div>
 <section id="indices-and-tables">

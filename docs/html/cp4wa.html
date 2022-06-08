@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3. Cloud Pak for Watson AIOps &mdash; cp4wa tutorials 0.1.0 documentation</title>
+  <title>4. Cloud Pak for Watson AIOps &mdash; cp4wa tutorials 0.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. IBM Edge Application Management" href="ieam.html" />
-    <link rel="prev" title="2. Splunk" href="splunk.html" /> 
+    <link rel="next" title="5. IBM Edge Application Management" href="ieam.html" />
+    <link rel="prev" title="3. AWX (Community Ansible Tower)" href="awx.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,21 +41,22 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="openshift.html">1. Red Hat OpenShift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="splunk.html">2. Splunk</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Cloud Pak for Watson AIOps</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisite">3.1. prerequisite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-cp4wa">3.2. Install CP4WA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sample-connection-in-cp4wa">3.3. Sample Connection in CP4WA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#integrating-to-splunk">3.4. Integrating to Splunk</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#add-connection-splunk">3.4.1. Add Connection: Splunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awx.html">3. AWX (Community Ansible Tower)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Cloud Pak for Watson AIOps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisite">4.1. prerequisite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cp4wa">4.2. Install CP4WA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-connection-in-cp4wa">4.3. Sample Connection in CP4WA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrating-to-splunk">4.4. Integrating to Splunk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-connection-splunk">4.4.1. Add Connection: Splunk</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#integrating-to-kubernetes-cp4wa">3.5. Integrating to Kubernetes (CP4WA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#integrating-to-servicenow">3.6. Integrating to ServiceNow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#resources">3.7. Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrating-to-kubernetes-cp4wa">4.5. Integrating to Kubernetes (CP4WA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrating-to-servicenow">4.6. Integrating to ServiceNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">4.7. Resources</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ieam.html">4. IBM Edge Application Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">5. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ieam.html">5. IBM Edge Application Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">6. References</a></li>
 </ul>
 
         </div>
@@ -72,7 +73,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">3. </span>Cloud Pak for Watson AIOps</li>
+      <li><span class="section-number">4. </span>Cloud Pak for Watson AIOps</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/cp4wa.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -83,15 +84,15 @@
            <div itemprop="articleBody">
              
   <section id="cloud-pak-for-watson-aiops">
-<h1><span class="section-number">3. </span>Cloud Pak for Watson AIOps<a class="headerlink" href="#cloud-pak-for-watson-aiops" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">4. </span>Cloud Pak for Watson AIOps<a class="headerlink" href="#cloud-pak-for-watson-aiops" title="Permalink to this headline"></a></h1>
 <section id="prerequisite">
-<h2><span class="section-number">3.1. </span>prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">4.1. </span>prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>OpenShift cluster, you can request a cluster, see instruction to request <a class="reference internal" href="openshift.html"><span class="doc">Red Hat OpenShift</span></a> .</p></li>
 </ul>
 </section>
 <section id="install-cp4wa">
-<h2><span class="section-number">3.2. </span>Install CP4WA<a class="headerlink" href="#install-cp4wa" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">4.2. </span>Install CP4WA<a class="headerlink" href="#install-cp4wa" title="Permalink to this headline"></a></h2>
 <p>Do refer to instruction on setting up a non HA starter CP4WA version for testing <a class="reference external" href="https://www.ibm.com/docs/en/cloud-paks/cloud-pak-watson-aiops/3.3.0?topic=manager-starter-installation-cli">here</a>.</p>
 <p>IBMer and partner can request of an instance OpenShift cluster where you can install CP4WA for testing.</p>
 <p>Do ensure you request the following</p>
@@ -106,30 +107,30 @@ To resolve this, you need to create a PVC and attach registry, see the <a class=
 <img alt="_images/precheck-pass.png" src="_images/precheck-pass.png" />
 </section>
 <section id="sample-connection-in-cp4wa">
-<h2><span class="section-number">3.3. </span>Sample Connection in CP4WA<a class="headerlink" href="#sample-connection-in-cp4wa" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">4.3. </span>Sample Connection in CP4WA<a class="headerlink" href="#sample-connection-in-cp4wa" title="Permalink to this headline"></a></h2>
 <img alt="_images/cp4wa-conn.png" src="_images/cp4wa-conn.png" />
 </section>
 <section id="integrating-to-splunk">
-<h2><span class="section-number">3.4. </span>Integrating to Splunk<a class="headerlink" href="#integrating-to-splunk" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">4.4. </span>Integrating to Splunk<a class="headerlink" href="#integrating-to-splunk" title="Permalink to this headline"></a></h2>
 <p>To connect to Splunk you need to ensure Splunk REST API is enabled, the free trail version of Splunk Cloud REST API is disabled.</p>
 <p>Splunk REST API is served by default at port 8089 over HTTPS.</p>
 <p>Do refer to  <a class="reference internal" href="splunk.html"><span class="doc">Splunk</span></a> on how to install a Splunk Enterprise on OpenShift.</p>
 <section id="add-connection-splunk">
-<h3><span class="section-number">3.4.1. </span>Add Connection: Splunk<a class="headerlink" href="#add-connection-splunk" title="Permalink to this headline"></a></h3>
+<h3><span class="section-number">4.4.1. </span>Add Connection: Splunk<a class="headerlink" href="#add-connection-splunk" title="Permalink to this headline"></a></h3>
 <img alt="_images/splunk-connection.png" src="_images/splunk-connection.png" />
 <img alt="_images/splunk-connection-test.png" src="_images/splunk-connection-test.png" />
 <img alt="_images/splunk-connection-train.png" src="_images/splunk-connection-train.png" />
 </section>
 </section>
 <section id="integrating-to-kubernetes-cp4wa">
-<h2><span class="section-number">3.5. </span>Integrating to Kubernetes (CP4WA)<a class="headerlink" href="#integrating-to-kubernetes-cp4wa" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">4.5. </span>Integrating to Kubernetes (CP4WA)<a class="headerlink" href="#integrating-to-kubernetes-cp4wa" title="Permalink to this headline"></a></h2>
 <p>testing adding kubernetes connection, the following shows adding connection for a local OCP where CP4WA is hosted.</p>
 <img alt="_images/cp4wa-k8sadd.png" src="_images/cp4wa-k8sadd.png" />
 <img alt="_images/cp4wa-k8slocal.png" src="_images/cp4wa-k8slocal.png" />
 <img alt="_images/cp4wa-k8sschedule.png" src="_images/cp4wa-k8sschedule.png" />
 </section>
 <section id="integrating-to-servicenow">
-<h2><span class="section-number">3.6. </span>Integrating to ServiceNow<a class="headerlink" href="#integrating-to-servicenow" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">4.6. </span>Integrating to ServiceNow<a class="headerlink" href="#integrating-to-servicenow" title="Permalink to this headline"></a></h2>
 <p>To test this integration, you can provisioned a developer instance at ServiceNow. <strong>Do take note</strong> it will be shutdown or archive if it is not used for a period of time.</p>
 <img alt="_images/cp4wa-snow.png" src="_images/cp4wa-snow.png" />
 <img alt="_images/cp4wa-snowconn.png" src="_images/cp4wa-snowconn.png" />
@@ -137,7 +138,7 @@ To resolve this, you need to create a PVC and attach registry, see the <a class=
 <img alt="_images/cp4wa-snowtick.png" src="_images/cp4wa-snowtick.png" />
 </section>
 <section id="resources">
-<h2><span class="section-number">3.7. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">4.7. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/IBM/cp4waiops-samples">CP4WAIOps samples</a></p></li>
 </ul>
@@ -148,8 +149,8 @@ To resolve this, you need to create a PVC and attach registry, see the <a class=
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="splunk.html" class="btn btn-neutral float-left" title="2. Splunk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ieam.html" class="btn btn-neutral float-right" title="4. IBM Edge Application Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="awx.html" class="btn btn-neutral float-left" title="3. AWX (Community Ansible Tower)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ieam.html" class="btn btn-neutral float-right" title="5. IBM Edge Application Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. AWX (Community Ansible Tower) &mdash; cp4wa tutorials 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Cloud Pak for Watson AIOps" href="cp4wa.html" />
+    <link rel="prev" title="2. Splunk" href="splunk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> cp4wa tutorials
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="openshift.html">1. Red Hat OpenShift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="splunk.html">2. Splunk</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. AWX (Community Ansible Tower)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-operator">3.1. Install Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-awx-project">3.1.1. create awx project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#switch-project-to-awx">3.1.2. switch project to awx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validate-pod-are-running">3.1.3. validate pod are running</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy-awx">3.2. Deploy AWX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#to-retrieve-the-admin-password-run">3.2.1. To retrieve the admin password, run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creae-http-non-secure-route">3.2.2. creae HTTP non secure route</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-secure-route-with-edge">3.2.3. create secure route with edge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#access-awx">3.3. Access AWX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-of-routes">3.3.1. List of routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awx-web-ui">3.3.2. AWX web ui</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">3.4. Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cp4wa.html">4. Cloud Pak for Watson AIOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ieam.html">5. IBM Edge Application Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">6. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cp4wa tutorials</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>AWX (Community Ansible Tower)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/awx.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="awx-community-ansible-tower">
+<h1><span class="section-number">3. </span>AWX (Community Ansible Tower)<a class="headerlink" href="#awx-community-ansible-tower" title="Permalink to this headline"></a></h1>
+<p>AWX provides a web-based user interface, REST API, and task engine built on top of Ansible. It is one of the upstream projects for Red Hat Ansible Automation Platform.</p>
+<section id="install-operator">
+<h2><span class="section-number">3.1. </span>Install Operator<a class="headerlink" href="#install-operator" title="Permalink to this headline"></a></h2>
+<p>Deploy the /yaml/awx-operator.yaml</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kustomize.config.k8s.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Kustomization</span>
+<span class="nt">resources</span><span class="p">:</span>
+<span class="c1"># Find the latest tag here: https://github.com/ansible/awx-operator/releases</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">github.com/ansible/awx-operator/config/default?ref=&lt;tag&gt;</span>
+
+<span class="c1"># Set the image tags to match the git version from above</span>
+<span class="nt">images</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">quay.io/ansible/awx-operator</span>
+    <span class="l l-Scalar l-Scalar-Plain">newTag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;tag&gt;</span>
+
+<span class="c1"># Specify a custom namespace in which to install AWX</span>
+<span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awx</span>
+</pre></div>
+</div>
+<p>Install the manifests by</p>
+<p>login to OpenShift with <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">login</span></code></p>
+<p>the yaml can be found in folder <strong>yaml</strong>, you can run the kustomize command in that folder.</p>
+<section id="create-awx-project">
+<h3><span class="section-number">3.1.1. </span>create awx project<a class="headerlink" href="#create-awx-project" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc new-project awx-operator
+
+Now using project <span class="s2">&quot;awx-operator&quot;</span> on server <span class="s2">&quot;https://c115-e.jp-tok.containers.cloud.ibm.com:30806&quot;</span>.
+
+You can add applications to this project with the <span class="s1">&#39;new-app&#39;</span> command. For example, try:
+
+    oc new-app rails-postgresql-example
+
+to build a new example application <span class="k">in</span> Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+    kubectl create deployment hello-node --image<span class="o">=</span>k8s.gcr.io/serve_hostname
+</pre></div>
+</div>
+<p>you can find the <a class="reference external" href="https://github.com/ansible/awx-operator/releases">releases</a> and use the image tag accordingly</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> yaml
+kustomize build . <span class="p">|</span> kubectl apply -f -
+
+namespace/awx created
+customresourcedefinition.apiextensions.k8s.io/awxbackups.awx.ansible.com created
+customresourcedefinition.apiextensions.k8s.io/awxrestores.awx.ansible.com created
+customresourcedefinition.apiextensions.k8s.io/awxs.awx.ansible.com created
+serviceaccount/awx-operator-controller-manager created
+role.rbac.authorization.k8s.io/awx-operator-awx-manager-role created
+role.rbac.authorization.k8s.io/awx-operator-leader-election-role created
+clusterrole.rbac.authorization.k8s.io/awx-operator-metrics-reader created
+clusterrole.rbac.authorization.k8s.io/awx-operator-proxy-role created
+rolebinding.rbac.authorization.k8s.io/awx-operator-awx-manager-rolebinding created
+rolebinding.rbac.authorization.k8s.io/awx-operator-leader-election-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/awx-operator-proxy-rolebinding created
+configmap/awx-operator-awx-manager-config created
+service/awx-operator-controller-manager-metrics-service created
+deployment.apps/awx-operator-controller-manager created
+</pre></div>
+</div>
+</section>
+<section id="switch-project-to-awx">
+<h3><span class="section-number">3.1.2. </span>switch project to awx<a class="headerlink" href="#switch-project-to-awx" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc project awx
+
+Now using project <span class="s2">&quot;awx&quot;</span> on server <span class="s2">&quot;https://c115-e.jp-tok.containers.cloud.ibm.com:30806&quot;</span>.
+</pre></div>
+</div>
+</section>
+<section id="validate-pod-are-running">
+<h3><span class="section-number">3.1.3. </span>validate pod are running<a class="headerlink" href="#validate-pod-are-running" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc get pods
+
+NAME                                               READY   STATUS    RESTARTS   AGE
+awx-operator-controller-manager-6c44794dd7-fbntn   <span class="m">2</span>/2     Running   <span class="m">0</span>          4m35s
+</pre></div>
+</div>
+</section>
+</section>
+<section id="deploy-awx">
+<h2><span class="section-number">3.2. </span>Deploy AWX<a class="headerlink" href="#deploy-awx" title="Permalink to this headline"></a></h2>
+<p>create <em>awx-demo.yaml</em> and then add into the <em>kustomization.yaml</em> under resources and run the following oc commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kustomize build . <span class="p">|</span> kubectl apply -f -
+
+namespace/awx unchanged
+customresourcedefinition.apiextensions.k8s.io/awxbackups.awx.ansible.com unchanged
+customresourcedefinition.apiextensions.k8s.io/awxrestores.awx.ansible.com unchanged
+customresourcedefinition.apiextensions.k8s.io/awxs.awx.ansible.com unchanged
+serviceaccount/awx-operator-controller-manager unchanged
+role.rbac.authorization.k8s.io/awx-operator-awx-manager-role configured
+role.rbac.authorization.k8s.io/awx-operator-leader-election-role unchanged
+clusterrole.rbac.authorization.k8s.io/awx-operator-metrics-reader unchanged
+clusterrole.rbac.authorization.k8s.io/awx-operator-proxy-role unchanged
+rolebinding.rbac.authorization.k8s.io/awx-operator-awx-manager-rolebinding unchanged
+rolebinding.rbac.authorization.k8s.io/awx-operator-leader-election-rolebinding unchanged
+clusterrolebinding.rbac.authorization.k8s.io/awx-operator-proxy-rolebinding unchanged
+configmap/awx-operator-awx-manager-config unchanged
+service/awx-operator-controller-manager-metrics-service unchanged
+deployment.apps/awx-operator-controller-manager unchanged
+awx.awx.ansible.com/awx-demo created
+
+kubectl get pods -l <span class="s2">&quot;app.kubernetes.io/managed-by=awx-operator&quot;</span>
+
+NAME                  READY   STATUS    RESTARTS   AGE
+awx-demo-postgres-0   <span class="m">1</span>/1     Running   <span class="m">0</span>          2m6s
+</pre></div>
+</div>
+<section id="to-retrieve-the-admin-password-run">
+<h3><span class="section-number">3.2.1. </span>To retrieve the admin password, run<a class="headerlink" href="#to-retrieve-the-admin-password-run" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl get secret awx-demo-admin-password -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.password}&quot;</span> <span class="p">|</span> base64 --decode
+</pre></div>
+</div>
+</section>
+<section id="creae-http-non-secure-route">
+<h3><span class="section-number">3.2.2. </span>creae HTTP non secure route<a class="headerlink" href="#creae-http-non-secure-route" title="Permalink to this headline"></a></h3>
+<img alt="_images/awx-http.png" src="_images/awx-http.png" />
+</section>
+<section id="create-secure-route-with-edge">
+<h3><span class="section-number">3.2.3. </span>create secure route with edge<a class="headerlink" href="#create-secure-route-with-edge" title="Permalink to this headline"></a></h3>
+<img alt="_images/awx-passthru.png" src="_images/awx-passthru.png" />
+<p>create a secure reoute with passthrough with the following yaml</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Route</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">route.openshift.io/v1</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awx3</span>
+<span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awx</span>
+<span class="nt">uid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bf399197-9a9f-486c-8e2a-dcc58837e7d5</span>
+<span class="nt">resourceVersion</span><span class="p">:</span> <span class="s">&#39;3146837&#39;</span>
+<span class="nt">creationTimestamp</span><span class="p">:</span> <span class="s">&#39;2022-06-08T13:42:21Z&#39;</span>
+<span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">app.kubernetes.io/component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awx</span>
+    <span class="nt">app.kubernetes.io/managed-by</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awx-operator</span>
+    <span class="nt">app.kubernetes.io/name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awx-demo</span>
+    <span class="nt">app.kubernetes.io/operator-version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.22.0</span>
+    <span class="nt">app.kubernetes.io/part-of</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awx-demo</span>
+<span class="nt">annotations</span><span class="p">:</span>
+    <span class="nt">openshift.io/host.generated</span><span class="p">:</span> <span class="s">&#39;true&#39;</span>
+<span class="nt">managedFields</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">manager</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mozilla</span>
+    <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update</span>
+    <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">route.openshift.io/v1</span>
+    <span class="nt">time</span><span class="p">:</span> <span class="s">&#39;2022-06-08T13:42:21Z&#39;</span>
+    <span class="nt">fieldsType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">FieldsV1</span>
+    <span class="nt">fieldsV1</span><span class="p">:</span>
+        <span class="s">&#39;f:metadata&#39;</span><span class="p p-Indicator">:</span>
+        <span class="s">&#39;f:labels&#39;</span><span class="p p-Indicator">:</span>
+            <span class="nt">.</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:app.kubernetes.io/component&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:app.kubernetes.io/managed-by&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:app.kubernetes.io/name&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:app.kubernetes.io/operator-version&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:app.kubernetes.io/part-of&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+        <span class="s">&#39;f:spec&#39;</span><span class="p p-Indicator">:</span>
+        <span class="s">&#39;f:port&#39;</span><span class="p p-Indicator">:</span>
+            <span class="nt">.</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:targetPort&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+        <span class="s">&#39;f:tls&#39;</span><span class="p p-Indicator">:</span>
+            <span class="nt">.</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:termination&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+        <span class="s">&#39;f:to&#39;</span><span class="p p-Indicator">:</span>
+            <span class="s">&#39;f:kind&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:name&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+            <span class="s">&#39;f:weight&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+        <span class="s">&#39;f:wildcardPolicy&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+    <span class="p p-Indicator">-</span> <span class="nt">manager</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">openshift-router</span>
+    <span class="nt">operation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Update</span>
+    <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">route.openshift.io/v1</span>
+    <span class="nt">time</span><span class="p">:</span> <span class="s">&#39;2022-06-08T13:42:21Z&#39;</span>
+    <span class="nt">fieldsType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">FieldsV1</span>
+    <span class="nt">fieldsV1</span><span class="p">:</span>
+        <span class="s">&#39;f:status&#39;</span><span class="p p-Indicator">:</span>
+        <span class="s">&#39;f:ingress&#39;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="nt">host</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
+    <span class="no">awx3-awx.itzroks-270004kcfq-i65iu1-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-tok.containers.appdomain.cloud</span>
+<span class="nt">to</span><span class="p">:</span>
+    <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awx-demo-service</span>
+    <span class="nt">weight</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="nt">port</span><span class="p">:</span>
+    <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+<span class="nt">tls</span><span class="p">:</span>
+    <span class="nt">termination</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">edge</span>
+<span class="nt">wildcardPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="access-awx">
+<h2><span class="section-number">3.3. </span>Access AWX<a class="headerlink" href="#access-awx" title="Permalink to this headline"></a></h2>
+<section id="list-of-routes">
+<h3><span class="section-number">3.3.1. </span>List of routes<a class="headerlink" href="#list-of-routes" title="Permalink to this headline"></a></h3>
+<img alt="_images/awx-routes.png" src="_images/awx-routes.png" />
+</section>
+<section id="awx-web-ui">
+<h3><span class="section-number">3.3.2. </span>AWX web ui<a class="headerlink" href="#awx-web-ui" title="Permalink to this headline"></a></h3>
+<img alt="_images/awx-ui.png" src="_images/awx-ui.png" />
+</section>
+</section>
+<section id="resources">
+<h2><span class="section-number">3.4. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ansible/awx">AWX github project</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansible/awx-operator">AWX Operator</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="splunk.html" class="btn btn-neutral float-left" title="2. Splunk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cp4wa.html" class="btn btn-neutral float-right" title="4. Cloud Pak for Watson AIOps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jaric Sng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
